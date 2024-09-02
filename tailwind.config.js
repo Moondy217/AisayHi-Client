@@ -5,7 +5,15 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      borderRadius: {
+        'borderRadius': '13px'
+      },
+
+      fontSize: {
+        'fontSize24': '20px',
+      },
+    }
   },
   plugins: [],
 };

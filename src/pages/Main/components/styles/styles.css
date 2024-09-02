@@ -1,0 +1,27 @@
+.searchInput {
+  width: 300px;
+  border-radius: 13px;
+  padding-left: 16px;
+  padding-right: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: white;
+  color: #4a5568; /* 텍스트 색상 */
+  border: none;
+  box-shadow: 0 0 0 2px #3182ce; /* 포커스 시 박스 그림자 */
+  z-index: 1;
+}
+
+.searchInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3182ce; /* 포커스 시 박스 그림자 */
+}
+
+.searchIcon {
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6A90F2;
+  z-index: 2;
+  position: absolute;
+  right: 10px; /* 입력 필드 오른쪽에서 2px 떨어진 위치에 배치 */
+}

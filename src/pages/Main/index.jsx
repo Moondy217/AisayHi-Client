@@ -1,12 +1,12 @@
 import '../../index.css'; // Tailwind CSS 파일 포함
-import Navbar from '../Main/components/MainNavbar';
+import MainNavbar from '../Main/components/MainNavbar';
 
 export default function MainPage() {
 
   return (
     <div>
       {/* 네비게이션 바 */}
-      <Navbar />
+      <MainNavbar />
       
       {/* 메인 컨텐츠 */}
       <main className="p-4">
