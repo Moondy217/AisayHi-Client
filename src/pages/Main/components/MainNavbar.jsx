@@ -3,10 +3,10 @@ import MainSearchBar from '../components/MainSearchBar';
 
 export default function MainNavbar() {
   return (
-    <nav className="bg-[#3B6EF1] text-fontSize24 h-[170px] flex-col">
+    <nav className="bg-[#3B6EF1] flex items-center text-fontSize24 h-[170px] flex-col">
       <div className="container h-full">
         {/* 첫 번째 줄: 로고 및 로그인/회원가입 */}
-        <div className="flex items-center justify-between h-[85px] ml-16 mr-16 mt-8 mb-0">
+        <div className="flex items-center justify-between h-[85px] ml-16 mr-16 mb-0">
           {/* 로고 */}
           <div className="flex items-center">
             <img src={Logo} alt="The Porter Marker Logo" className="h-[45px]" />
