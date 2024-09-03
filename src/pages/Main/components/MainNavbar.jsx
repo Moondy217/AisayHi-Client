@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.svg';
 import MainSearchBar from './MainSearchBar';
+import '../../../index.css';
 
 export default function MainNavbar() {
   return (
@@ -35,8 +36,8 @@ export default function MainNavbar() {
                 THE PORTER MARKET
               </Link>
               </span>
-              
-            <div className="hidden md:flex justify-center space-x-8 flex-1 pl-14">
+
+            <div className="hidden md:flex items-start justify-center space-x-8 flex-1 pl-14 mt-1 mb-0">
               <a href="#" className="text-white hover:text-gray-200 no-underline">
                 전체 카테고리
               </a>
