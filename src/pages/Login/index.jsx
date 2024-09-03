@@ -6,7 +6,7 @@ export default function LoginPage() {
   return (
     <div className="flex justify-center items-center h-[500px]">
       <div className="text-center mt-[70px] w-[500px]">
-        <h1 className="mb-6">더포마켓 로그인</h1>
+        <h1 className="mb-6 mt-0 text-[48px]">더포마켓 로그인</h1>
 
         <form noValidate onSubmit={handleSubmit} className="flex flex-col items-center w-full">
           {/* 아이디 입력 필드 */}
@@ -17,7 +17,7 @@ export default function LoginPage() {
               value={formData.login_id}
               onChange={handleChange}
               placeholder="아이디 입력"
-              className="mt-[50px] h-[50px] w-full border border-[#3B6EF1] rounded-t-[13px] border-b-0 focus:outline-none px-3"
+              className="mt-[50px] h-[50px] w-full border !border-[#3B6EF1] rounded-t-[13px] border-b-0 focus:outline-none px-3"
               required
             />
           </div>
