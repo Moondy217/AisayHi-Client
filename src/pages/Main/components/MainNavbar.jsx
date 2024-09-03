@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.svg';
-import MainSearchBar from '../components/MainSearchBar';
+import MainSearchBar from './MainSearchBar';
 
 export default function MainNavbar() {
   return (
@@ -14,9 +15,9 @@ export default function MainNavbar() {
 
           {/* 로그인 및 회원가입 링크 */}
           <div className="flex items-center space-x-4">
-            <a href="#" className="text-white hover:text-gray-200" aria-label="Login">
+            <Link to="/LoginPage" className="text-white hover:text-gray-200" aria-label="Login">
               로그인
-            </a>
+            </Link>
             <a href="#" className="text-white hover:text-gray-200 mr-2" aria-label="Sign Up">
               회원가입
             </a>
@@ -28,6 +29,8 @@ export default function MainNavbar() {
           {/* 텍스트 및 네비게이션 메뉴 */}
           <div className="flex items-start space-x-4 h-full px-0 py-0">
             <span className="text-white font-bold text-[24px]">THE PORTER MARKET</span>
+
+
             <div className="hidden md:flex justify-center space-x-8 flex-1 pl-14">
               <a href="#" className="text-white hover:text-gray-200">
                 전체 카테고리
