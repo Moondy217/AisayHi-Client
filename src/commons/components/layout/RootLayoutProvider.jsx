@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import MainNavbar from '../../../pages/Main/components/MainNavbar';
+import SubGreyMenu from '../../../pages/Main/components/SubGreyMenu';
 
 export default function RootLayoutProvider({ children }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -8,6 +9,7 @@ export default function RootLayoutProvider({ children }) {
   return (
     <QueryClientProvider client={queryClient}>
       <MainNavbar />
+      <SubGreyMenu />
       <div className="w-full h-full">
         {children}
       </div>
