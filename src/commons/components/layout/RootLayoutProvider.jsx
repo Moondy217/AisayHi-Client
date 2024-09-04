@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import MainNavBar from '../../../pages/Main/components/MainNavBar';
-import SubGreyMenu from '../../../pages/Main/components/SubGreyMenu';
+import MainNavbar from '../../../pages/Main/components/MainNavbar';
 
 export default function RootLayoutProvider({ children }) {
   const [queryClient] = useState(() => new QueryClient());
 
   return (
     <QueryClientProvider client={queryClient}>
-      <MainNavBar/>
-      <SubGreyMenu />
-      <div className="container mx-auto">
+      <MainNavbar />
+      <div className="w-full h-full">
         {children}
       </div>
     </QueryClientProvider>
