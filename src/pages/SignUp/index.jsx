@@ -4,11 +4,11 @@ function SignUpPage() {
   const { formData, validated, handleChange, handleSubmit } = useSignUpForm();
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center items-center h-full">
       <div className="text-center mt-[70px] w-[500px]">
       <h1 className="mb-6 text-[48px]">더포마켓 회원가입</h1>
 
-        <form
+      <form
           noValidate
           validated={validated.toString()}
           onSubmit={handleSubmit}

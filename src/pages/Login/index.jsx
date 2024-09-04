@@ -4,7 +4,7 @@ export default function LoginPage() {
   const { formData, handleChange, handleSubmit } = useLoginForm();
 
   return (
-    <div className="flex justify-center items-center h-[500px]">
+    <div className="flex justify-center items-center h-full">
       <div className="text-center mt-[70px] w-[500px]">
         <h1 className="mb-6 mt-0 text-[48px]">더포마켓 로그인</h1>
 
