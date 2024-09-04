@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.svg';
 import MainSearchBar from './MainSearchBar';
+import MainMenu from './MainMenu';
 import '../../../index.css';
 
 export default function MainNavbar() {
@@ -29,7 +30,8 @@ export default function MainNavbar() {
 
         {/* 두 번째 줄: 텍스트, 네비게이션 메뉴 및 검색바 */}
         <div className="flex items-start justify-between text-[18px] h-[85px] ml-16 mr-16 mt-0 mb-0">
-          {/* 텍스트 및 네비게이션 메뉴 */}
+
+          {/* 로고 텍스트 */}
           <div className="flex items-start space-x-4 h-full px-0 py-0">
             <span className="font-bold text-[24px]">
               <Link to="/" className="text-white hover:text-gray-200 no-underline" aria-label="Main">
@@ -37,23 +39,8 @@ export default function MainNavbar() {
               </Link>
               </span>
 
-            <div className="hidden md:flex items-start justify-center space-x-8 flex-1 pl-14 mt-1 mb-0">
-              <a href="#" className="text-white hover:text-gray-200 no-underline">
-                전체 카테고리
-              </a>
-              <a href="#" className="text-white hover:text-gray-200 no-underline">
-                전체 상품 보기
-              </a>
-              <a href="#" className="text-white hover:text-gray-200 no-underline">
-                Porter Pick
-              </a>
-              <a href="#" className="text-white hover:text-gray-200 no-underline">
-                모바일 상품권
-              </a>
-              <a href="#" className="text-white hover:text-gray-200 no-underline">
-                선물하기
-              </a>
-            </div>
+            {/* 네비게이션 메뉴 */}
+            <MainMenu />
           </div>
 
           {/* 검색바 */}
