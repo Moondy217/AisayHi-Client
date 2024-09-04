@@ -1,4 +1,4 @@
-import '../../index.css'; // Tailwind CSS 파일 포함
+import '../../index.css';
 
 export default function MainPage() {
 
