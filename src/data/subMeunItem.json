@@ -1,0 +1,22 @@
+[
+  {
+    "name": "사무용품",
+    "image": "/assets/subMenu/사무용품.svg"
+  },
+  {
+    "name": "생활용품",
+    "image": "/assets/subMenu/생활용품.svg"
+  },
+  {
+    "name": "식/음료",
+    "image": "/assets/subMenu/식음료.svg"
+  },
+  {
+    "name": "PC/주변기기",
+    "image": "/assets/subMenu/PC주변기기.svg"
+  },
+  {
+    "name": "전산소모품",
+    "image": "/assets/subMenu/전산소모품.svg"
+  }
+]
