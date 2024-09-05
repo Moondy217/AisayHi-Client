@@ -6,11 +6,10 @@ function SignUpPage() {
   return (
     <div className="flex justify-center items-center h-full">
       <div className="text-center mt-[70px] w-[500px]">
-      <h1 className="mb-6 text-[48px]">더포마켓 회원가입</h1>
+        <h1 className="mb-6 text-[48px]">더포마켓 회원가입</h1>
 
-      <form
+        <form
           noValidate
-          validated={validated.toString()}
           onSubmit={handleSubmit}
           className="flex flex-col items-center"
         >
@@ -66,6 +65,9 @@ function SignUpPage() {
             회원가입 완료
           </button>
         </form>
+
+        {/* 유효성 검사에 따른 메시지 표시 */}
+        {!validated && <p className="text-red-500 mt-4">입력한 정보를 확인해주세요.</p>}
       </div>
     </div>
   );
