@@ -8,8 +8,8 @@ const itemsList = [
   
   export default function SubCateMenu() {
     return (
-      <div className="h top-[135px] w-full flex justify-center z-20">
-        <div className="grid grid-cols-5 bg-white border-x border-[#3B6EF1] w-full h-[230px] overflow-hidden ml-16 mr-16">
+      <div className="h top-[135px] bg-gray-300 bg-opacity-50 w-full flex justify-center z-20">
+        <div className="grid grid-cols-5 bg-white border-x border-[#3B6EF1] w-full h-[230px] overflow-hidden ml-[150px] mr-[150px]">
           {itemsList.map((items, colIndex) => (
             <div
               key={colIndex}
