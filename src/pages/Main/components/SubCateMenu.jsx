@@ -8,10 +8,13 @@ const itemsList = [
   
   export default function SubCateMenu() {
     return (
-      <div className="absolute top-[170px] left-0 w-full z-40">
-        <div className="grid grid-cols-5 bg-white border-x border-b-2 border-[#3B6EF1] w-full h-[230px] overflow-hidden">
+      <div className="h top-[135px] w-full flex justify-center z-20">
+        <div className="grid grid-cols-5 bg-white border-x border-[#3B6EF1] w-full h-[230px] overflow-hidden ml-16 mr-16">
           {itemsList.map((items, colIndex) => (
-            <div key={colIndex} className="flex flex-col">
+            <div
+              key={colIndex}
+              className={`flex flex-col ${colIndex < itemsList.length - 1 ? 'border-r border-[#3B6EF1]' : ''}`} // 마지막 열을 제외한 모든 열에 오른쪽 보더 추가
+            >
               {items.map((item, index) => (
                 <div
                   key={index}
@@ -28,4 +31,3 @@ const itemsList = [
       </div>
     );
   }
-  

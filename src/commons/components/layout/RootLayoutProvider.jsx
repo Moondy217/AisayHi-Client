@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import MainNavbar from '../../../pages/Main/components/MainNavbar';
+import MainMenu from '../../../pages/Main/components/MainMenu';
 import SubGreyMenu from '../../../pages/Main/components/SubGreyMenu';
+import SubCateMenu from '../../../pages/Main/components/SubCateMenu';
+import useMenuStore from '../../../store/menuStore';
 
 export default function RootLayoutProvider({ children }) {
-  const [queryClient] = useState(() => new QueryClient());
+  const queryClient = new QueryClient();
+  const isSubCateMenu = useMenuStore((state) => state.isSubCateMenu);
 
   return (
     <QueryClientProvider client={queryClient}>
       <MainNavbar />
-      <SubGreyMenu />
-      <div className="w-full h-full">
+
+      {/* 상태에 따라 SubGreyMenu 또는 SubCateMenu 렌더링 */}
+      <div className="relative w-full">
+        {isSubCateMenu ? (
+          <SubCateMenu className="absolute top-0 left-0 w-full z-30" /> // 메뉴를 absolute로 설정
+        ) : (
+          <SubGreyMenu className="absolute top-0 left-0 w-full z-30" /> // 메뉴를 absolute로 설정
+        )}
+      </div>
+
+      {/* 메인 페이지 콘텐츠 */}
+      <div className="w-full h-full relative z-10 border border-red-500"> {/* 메인 페이지는 항상 하단에 위치 */}
         {children}
       </div>
     </QueryClientProvider>

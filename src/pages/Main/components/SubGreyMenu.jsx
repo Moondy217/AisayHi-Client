@@ -3,7 +3,7 @@ import items from '../../../data/subMeunItem.json';
 
 export default function SubGreyMenu() {
   return (
-    <div className="h-[230px] w-full bg-gray-300 bg-opacity-50">
+    <div className="h-[230px] w-full bg-gray-300 bg-opacity-50 mt-0">
       <div className="h-[230px] flex justify-center">
         <div className="flex flex-nowrap overflow-x-auto space-x-[135px] px-4">
             {items.map((item, index) => (
