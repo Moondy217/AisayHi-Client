@@ -31,5 +31,5 @@ export default function RootLayoutProvider({ children }) {
 }
 
 RootLayoutProvider.propTypes = {
-  children: PropTypes.node.isRequired, // 'children' 프로퍼티가 필수이며, React 노드일 수 있음
+  children: PropTypes.node.isRequired,
 };
