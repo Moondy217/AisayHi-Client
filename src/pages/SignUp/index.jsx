@@ -1,7 +1,7 @@
 import useSignUpForm from '../../hooks/useSignUpForm';
 
 function SignUpPage() {
-  const { formData, validated, handleChange, handleSubmit } = useSignUpForm();
+  const { formData, handleChange, handleSubmit, signupError, isLoading } = useSignUpForm();
 
   return (
     <div className="flex justify-center items-center h-full">
@@ -57,17 +57,20 @@ function SignUpPage() {
             className="mt-[50px] w-[500px] h-[55px] border-0 border-b-2 border-[#3B6EF1] mb-[25px] focus:outline-none focus:ring-0"
           />
 
+          {/* 에러 메시지 */}
+          {signupError && <p className="text-red-500 text-sm mb-4">{signupError}</p>}
+
           {/* 회원가입 버튼 */}
           <button
             type="submit"
-            className="mt-[50px] mb-[100px] w-[500px] h-[50px] rounded-[13px] bg-[#3B6EF1] text-white hover:bg-blue-600 focus:outline-none"
+            disabled={isLoading} // 로딩 중일 때 버튼 비활성화
+            className={`mt-[50px] mb-[100px] w-[500px] h-[50px] rounded-[13px] bg-[#3B6EF1] text-white ${
+              isLoading ? 'bg-gray-500' : 'hover:bg-blue-600'
+            } focus:outline-none`}
           >
-            회원가입 완료
+            {isLoading ? '가입 중...' : '회원가입 완료'}
           </button>
         </form>
-
-        {/* 유효성 검사에 따른 메시지 표시 */}
-        {!validated && <p className="text-red-500 mt-4">입력한 정보를 확인해주세요.</p>}
       </div>
     </div>
   );

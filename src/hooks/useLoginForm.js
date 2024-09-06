@@ -1,46 +1,47 @@
+// src/hooks/useLoginForm.js
+
 import { useState } from 'react';
 import axios from 'axios';
 
-function useLoginForm() {
+export default function useLoginForm() {
   const [formData, setFormData] = useState({
     login_id: '',
-    userpwd: ''
+    userpwd: '',
   });
+  const [loginError, setLoginError] = useState('');
 
-  const [validated, setValidated] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    console.log('Sending login request with data:', formData);  // 여기서 폼 데이터 확인
 
-    if (formData.login_id && formData.userpwd) {
-      setValidated(true);
-      try {
-        const response = await axios.post('/api/login', formData);
-        console.log('Login successful:', response.data);
-        // 로그인 성공 후 추가 로직 처리
-      } catch (error) {
-        console.error('Login failed:', error);
-        // 에러 처리 로직 추가
-      }
-    } else {
-      setValidated(false);
+    try {
+      const response = await axios.post('http://localhost:8000/api/token/', {
+        login_id: formData.login_id,
+        password: formData.userpwd,
+      });
+
+      console.log('Response received:', response.data);  // 응답 데이터 확인
+
+      // 로그인 성공 시 처리
+    } catch (error) {
+      console.error('Login failed:', error);  // 에러 확인
+      setLoginError('로그인에 실패했습니다. 다시 시도해주세요.');
     }
   };
 
   return {
     formData,
-    validated,
     handleChange,
     handleSubmit,
+    loginError,
   };
 }
-
-export default useLoginForm;
