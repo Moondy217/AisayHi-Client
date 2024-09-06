@@ -37,7 +37,7 @@ export default function useSignUpForm() {
 
       if (signupSuccess) {
         alert('회원가입 성공!');
-        navigate('/login');
+        navigate('/LoginPage');
       } else {
         alert(`회원가입 실패: ${signupError || '알 수 없는 오류 발생'}`);
       }
