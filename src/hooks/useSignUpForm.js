@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAuthStore from '../store/authStore';
+import axios from 'axios'; // Axios 사용
 
 export default function useSignUpForm() {
-  const { signUp, signupError, isLoading } = useAuthStore();
   const [formData, setFormData] = useState({
     username: '',
     login_id: '',
     userpwd: '',
     userpwdConfirm: '',
   });
+  const [signupError, setSignupError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -28,22 +29,28 @@ export default function useSignUpForm() {
       return;
     }
 
+    setIsLoading(true); // 로딩 상태 설정
+
     try {
-      const signupSuccess = await signUp({
+      const response = await axios.post('http://localhost:8000/pm/signup/', {
         username: formData.username,
         login_id: formData.login_id,
         userpwd: formData.userpwd,
       });
 
-      if (signupSuccess) {
+      if (response.status === 201) {
         alert('회원가입 성공!');
-        navigate('/LoginPage');
+        navigate('/LoginPage'); // 회원가입 성공 시 로그인 페이지로 이동
       } else {
-        alert(`회원가입 실패: ${signupError || '알 수 없는 오류 발생'}`);
+        setSignupError('회원가입 실패');
+        alert('회원가입 실패');
       }
     } catch (error) {
       console.error('회원가입 중 오류:', error);
+      setSignupError('회원가입 중 오류가 발생했습니다.');
       alert('회원가입 중 오류가 발생했습니다.');
+    } finally {
+      setIsLoading(false); // 로딩 상태 해제
     }
   };
 

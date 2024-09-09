@@ -1,13 +1,20 @@
-import useAuthStore from '../../store/authStore';
+import useLoginForm from '../../hooks/useLoginForm';
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const { login_id, userpwd, loginError, setLoginId, setUserpwd, login } = useAuthStore();
+  const { login_id, userpwd, loginError, setLoginId, setUserpwd, handleLogin } = useLoginForm(); // useLoginForm 훅 사용
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login(navigate); // navigate를 전달
+
+    const result = await handleLogin(); // 로그인 처리 함수 호출
+
+    if (result) {
+      // 로그인 성공 시 알림을 띄우고 메인 페이지로 이동
+      alert('로그인 성공');
+      navigate('/'); // 메인 페이지로 이동
+    }
   };
 
   return (

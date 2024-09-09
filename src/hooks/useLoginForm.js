@@ -1,95 +1,49 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useStore } from '../store/store'; // Zustand store에서 상태 가져오기
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
+import useAuthStore from '../store/useAuthStore'; // 로그인 상태 스토어 import
 
+const useLoginForm = () => {
+  const [login_id, setLoginId] = useState('');
+  const [userpwd, setUserpwd] = useState('');
+  const { login } = useAuthStore(); // 로그인 함수 가져오기
+  const [loginError, setLoginError] = useState(''); // 오류 상태 관리 추가
+  const navigate = useNavigate(); // Zustand에서 로그인 함수 가져오기
 
-export const useLogin = () => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const setAccessToken = useStore((state) => state.setAccessToken); // Zustand의 상태 업데이트 함수
-  const navigate = useNavigate(); // 페이지 이동을 위한 useNavigate
-  
-  // 로그인 기능
-  const login = async (login_id, userpwd) => {
-    setLoading(true);
-    setError(null);
-
-    // 서버로 보내는 데이터를 콘솔에 출력
-    console.log("전송되는 데이터:", {
-      login_id,
-      userpwd,
-    });
-    
+  const handleLogin = async () => {
     try {
-      const response = await axios.post('/api/login/', {
+      const response = await axios.post('http://localhost:8000/pm/login/', {
         login_id,
         userpwd,
       });
+  
+      console.log(response.data); // 서버 응답을 전체적으로 확인
 
-      const { access, refresh } = response.data;
-      
-      // JWT 토큰을 Zustand 또는 localStorage에 저장
-      setAccessToken(access);
-      localStorage.setItem('accessToken', access);
-      localStorage.setItem('refreshToken', refresh);
-
-      // 로그인 성공 시 Toast 메시지 띄우기
-      toast.success('로그인 성공!');
-
-      // 메인 페이지로 이동
-      navigate('/');
-
-      setLoading(false);
-      return response.data; // 필요에 따라 리턴 값 사용
-    } catch (err) {
-      setError(err.response?.data?.message || '로그인에 실패했습니다.');
-      setLoading(false);
+      if (response.status === 200) {
+        if (response.data.user && response.data.user.username) {
+          login(response.data.user.username); // 서버에서 받은 username으로 상태 업데이트
+          console.log('Username:', response.data.user.username); // 확인
+          navigate('/');
+        } else {
+          alert('로그인 실패: 서버에서 사용자 이름을 받지 못했습니다.');
+        }
+      } else {
+        alert('로그인 실패: ' + response.data.error);
+      }
+    } catch (error) {
+      console.error('로그인 중 오류:', error);
+      setLoginError('로그인 중 오류가 발생했습니다.'); // 오류 상태 업데이트
     }
   };
-
-  // 리프레시 토큰을 사용해 액세스 토큰 갱신 기능
-  const refreshAccessToken = async () => {
-    const refreshToken = localStorage.getItem('refreshToken');
-    if (!refreshToken) {
-      setError('리프레시 토큰이 없습니다. 다시 로그인하세요.');
-      return false;
-    }
-
-    try {
-      const response = await axios.post('/api/token/refresh/', { refresh: refreshToken });
-      const { access } = response.data;
-
-      // 새로운 액세스 토큰을 저장
-      setAccessToken(access);
-      localStorage.setItem('accessToken', access);
-      return true;
-    } catch {
-      setError('로그인에 실패했습니다.');
-      setLoading(false);
-    }
+  
+  return {
+    login_id,
+    setLoginId,
+    userpwd,
+    setUserpwd,
+    handleLogin,
+    loginError, // 오류 상태를 반환
   };
-
-  // 자동 로그인: 토큰이 있으면 자동으로 상태 설정
-  useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-      setAccessToken(accessToken);
-    }
-  }, [setAccessToken]);
-
-  // 로그아웃 기능
-  const logout = () => {
-    // 저장된 토큰 제거
-    setAccessToken(null);
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-
-    // 로그아웃 후 페이지 이동
-    navigate('/login');
-  };
-
-  return { login, refreshAccessToken, logout, loading, error };
 };
+
+export default useLoginForm;
