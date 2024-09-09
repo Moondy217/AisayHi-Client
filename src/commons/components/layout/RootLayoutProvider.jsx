@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import PropTypes from 'prop-types';
 import MainNavbar from '../../../pages/Main/components/MainNavbar';
-import MainMenu from '../../../pages/Main/components/MainMenu';
 import SubGreyMenu from '../../../pages/Main/components/SubGreyMenu';
 import SubCateMenu from '../../../pages/Main/components/SubCateMenu';
 import useMenuStore from '../../../store/menuStore';
@@ -29,3 +29,7 @@ export default function RootLayoutProvider({ children }) {
     </QueryClientProvider>
   );
 }
+
+RootLayoutProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

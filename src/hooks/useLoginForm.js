@@ -1,46 +1,49 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import useAuthStore from '../store/useAuthStore'; // 로그인 상태 스토어 import
 
-function useLoginForm() {
-  const [formData, setFormData] = useState({
-    login_id: '',
-    userpwd: ''
-  });
+const useLoginForm = () => {
+  const [login_id, setLoginId] = useState('');
+  const [userpwd, setUserpwd] = useState('');
+  const { login } = useAuthStore(); // 로그인 함수 가져오기
+  const [loginError, setLoginError] = useState(''); // 오류 상태 관리 추가
+  const navigate = useNavigate(); // Zustand에서 로그인 함수 가져오기
 
-  const [validated, setValidated] = useState(false);
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:8000/pm/login/', {
+        login_id,
+        userpwd,
+      });
+  
+      console.log(response.data); // 서버 응답을 전체적으로 확인
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (formData.login_id && formData.userpwd) {
-      setValidated(true);
-      try {
-        const response = await axios.post('/api/login', formData);
-        console.log('Login successful:', response.data);
-        // 로그인 성공 후 추가 로직 처리
-      } catch (error) {
-        console.error('Login failed:', error);
-        // 에러 처리 로직 추가
+      if (response.status === 200) {
+        if (response.data.user && response.data.user.username) {
+          login(response.data.user.username); // 서버에서 받은 username으로 상태 업데이트
+          console.log('Username:', response.data.user.username); // 확인
+          navigate('/');
+        } else {
+          alert('로그인 실패: 서버에서 사용자 이름을 받지 못했습니다.');
+        }
+      } else {
+        alert('로그인 실패: ' + response.data.error);
       }
-    } else {
-      setValidated(false);
+    } catch (error) {
+      console.error('로그인 중 오류:', error);
+      setLoginError('로그인 중 오류가 발생했습니다.'); // 오류 상태 업데이트
     }
   };
-
+  
   return {
-    formData,
-    validated,
-    handleChange,
-    handleSubmit,
+    login_id,
+    setLoginId,
+    userpwd,
+    setUserpwd,
+    handleLogin,
+    loginError, // 오류 상태를 반환
   };
-}
+};
 
 export default useLoginForm;

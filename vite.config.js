@@ -3,8 +3,11 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    port: 5174  // 포트 번호
+  },
   esbuild: {
-    loader: 'jsx', // 이 설정을 추가하여 JSX 파일을 인식하도록 합니다.
-    include: /src\/.*\.jsx?$/, // 필요한 파일 경로를 지정합니다.
+    loader: 'jsx',
+    include: /src\/.*\.jsx?$/,
   },
 });

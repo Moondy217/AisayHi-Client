@@ -1,16 +1,15 @@
 import useSignUpForm from '../../hooks/useSignUpForm';
 
 function SignUpPage() {
-  const { formData, validated, handleChange, handleSubmit } = useSignUpForm();
+  const { formData, handleChange, handleSubmit, signupError, isLoading } = useSignUpForm();
 
   return (
     <div className="flex justify-center items-center h-full">
       <div className="text-center mt-[70px] w-[500px]">
-      <h1 className="mb-6 text-[48px]">더포마켓 회원가입</h1>
+        <h1 className="mb-6 text-[48px]">더포마켓 회원가입</h1>
 
-      <form
+        <form
           noValidate
-          validated={validated.toString()}
           onSubmit={handleSubmit}
           className="flex flex-col items-center"
         >
@@ -58,12 +57,18 @@ function SignUpPage() {
             className="mt-[50px] w-[500px] h-[55px] border-0 border-b-2 border-[#3B6EF1] mb-[25px] focus:outline-none focus:ring-0"
           />
 
+          {/* 에러 메시지 */}
+          {signupError && <p className="text-red-500 text-sm mb-4">{signupError}</p>}
+
           {/* 회원가입 버튼 */}
           <button
             type="submit"
-            className="mt-[50px] mb-[100px] w-[500px] h-[50px] rounded-[13px] bg-[#3B6EF1] text-white hover:bg-blue-600 focus:outline-none"
+            disabled={isLoading} // 로딩 중일 때 버튼 비활성화
+            className={`mt-[50px] mb-[100px] w-[500px] h-[50px] rounded-[13px] bg-[#3B6EF1] text-white ${
+              isLoading ? 'bg-gray-500' : 'hover:bg-blue-600'
+            } focus:outline-none`}
           >
-            회원가입 완료
+            {isLoading ? '가입 중...' : '회원가입 완료'}
           </button>
         </form>
       </div>
