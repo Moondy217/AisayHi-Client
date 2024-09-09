@@ -16,13 +16,11 @@ const useLoginForm = () => {
         login_id,
         userpwd,
       });
-  
-      console.log(response.data); // 서버 응답을 전체적으로 확인
 
       if (response.status === 200) {
         if (response.data.user && response.data.user.username) {
           login(response.data.user.username); // 서버에서 받은 username으로 상태 업데이트
-          console.log('Username:', response.data.user.username); // 확인
+          alert(`${response.data.user.username}님, 환영합니다!`); // 로그인 성공 메시지
           navigate('/');
         } else {
           alert('로그인 실패: 서버에서 사용자 이름을 받지 못했습니다.');
@@ -31,7 +29,6 @@ const useLoginForm = () => {
         alert('로그인 실패: ' + response.data.error);
       }
     } catch (error) {
-      console.error('로그인 중 오류:', error);
       setLoginError('로그인 중 오류가 발생했습니다.'); // 오류 상태 업데이트
     }
   };

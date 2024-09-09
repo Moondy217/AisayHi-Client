@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/Logo.svg';
 import MainSearchBar from './MainSearchBar';
 import MainMenu from './MainMenu';
@@ -7,9 +7,13 @@ import '../../../index.css';
 
 export default function MainNavbar() {
   const { isAuthenticated, username, logout } = useAuthStore();
+  const navigate = useNavigate();
 
-  console.log('isAuthenticated:', isAuthenticated); // 로그인 여부 확인
-  console.log('username:', username); // 사용자 이름 확인
+  const handleLogout = () => {
+    logout(); // 상태 업데이트
+    window.location.href = '/'; // 메인 페이지로 이동
+    window.location.reload(); // 페이지 새로고침
+  };
 
   return (
     <nav className="bg-[#3B6EF1] flex flex-col items-center text-white h-[170px]">
@@ -28,9 +32,9 @@ export default function MainNavbar() {
             {isAuthenticated ? (
               // 로그인된 상태
               <>
-                <span>{username}님, 환영합니다!</span>
+                <span>{username} 님</span>
                 <button
-                  onClick={logout}
+                  onClick={handleLogout}
                   className="text-white hover:text-gray-200 no-underline"
                   aria-label="Logout"
                 >
