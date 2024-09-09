@@ -10,9 +10,9 @@ export default function MainNavbar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    localStorage.removeItem('user'); // 세션 정보 삭제
     logout(); // 상태 업데이트
-    window.location.href = '/'; // 메인 페이지로 이동
-    window.location.reload(); // 페이지 새로고침
+    navigate('/'); // 메인 페이지로 이동
   };
 
   return (
