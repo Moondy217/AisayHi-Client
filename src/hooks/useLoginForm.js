@@ -4,17 +4,16 @@ import axios from 'axios';
 import useAuthStore from '../store/useAuthStore';
 
 const useLoginForm = () => {
-  const [login_id, setLoginId] = useState('');
-  const [userpwd, setUserpwd] = useState('');
+  const [loginId, setLoginId] = useState('');
+  const [userPwd, setUserpwd] = useState('');
   const { login } = useAuthStore(); // 로그인 함수 가져오기
-  const [loginError, setLoginError] = useState(''); // 오류 상태 관리 추가
   const navigate = useNavigate(); // 페이지 이동을 위한 navigate
 
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:8000/pm/login/', {
-        login_id,
-        userpwd,
+        loginId,
+        userPwd,
       });
 
       if (response.status === 200) {
@@ -60,12 +59,11 @@ const useLoginForm = () => {
   };
 
   return {
-    login_id,
+    loginId,
     setLoginId,
-    userpwd,
+    userPwd,
     setUserpwd,
     handleLogin,
-    loginError, // 오류 상태를 반환
   };
 };
 

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const { login_id, userpwd, loginError, setLoginId, setUserpwd, handleLogin } = useLoginForm(); // useLoginForm 훅 사용
+  const { loginId, userPwd, loginError, setLoginId, setUserpwd, handleLogin } = useLoginForm(); // useLoginForm 훅 사용
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ export default function LoginPage() {
             <input
               type="text"
               name="login_id"
-              value={login_id}
+              value={loginId}
               onChange={(e) => setLoginId(e.target.value)}
               placeholder="아이디 입력"
               className="mt-[50px] h-[50px] w-full border !border-[#3B6EF1] rounded-t-[13px] border-b-0 focus:outline-none px-3"
@@ -39,7 +39,7 @@ export default function LoginPage() {
             <input
               type="password"
               name="userpwd"
-              value={userpwd}
+              value={userPwd}
               onChange={(e) => setUserpwd(e.target.value)}
               placeholder="비밀번호 입력"
               className="h-[50px] w-full border border-[#3B6EF1] rounded-b-[13px] focus:outline-none px-3"

@@ -28,9 +28,9 @@ function SignUpPage() {
           <input
             required
             type="text"
-            name="login_id"
+            name="loginId"
             placeholder="아이디"
-            value={formData.login_id}
+            value={formData.loginId}
             onChange={handleChange}
             className="mt-[50px] w-[500px] h-[55px] border-0 border-b-2 border-[#3B6EF1] mb-[25px] focus:outline-none focus:ring-0"
           />
@@ -39,9 +39,9 @@ function SignUpPage() {
           <input
             required
             type="password"
-            name="userpwd"
+            name="userPwd"
             placeholder="비밀번호"
-            value={formData.userpwd}
+            value={formData.userPwd}
             onChange={handleChange}
             className="mt-[50px] w-[500px] h-[55px] border-0 border-b-2 border-[#3B6EF1] mb-[25px] focus:outline-none focus:ring-0"
           />
@@ -50,9 +50,9 @@ function SignUpPage() {
           <input
             required
             type="password"
-            name="userpwdConfirm"
+            name="userPwdConfirm"
             placeholder="비밀번호 확인"
-            value={formData.userpwdConfirm}
+            value={formData.userPwdConfirm}
             onChange={handleChange}
             className="mt-[50px] w-[500px] h-[55px] border-0 border-b-2 border-[#3B6EF1] mb-[25px] focus:outline-none focus:ring-0"
           />

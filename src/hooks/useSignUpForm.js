@@ -5,9 +5,9 @@ import axios from 'axios'; // Axios 사용
 export default function useSignUpForm() {
   const [formData, setFormData] = useState({
     username: '',
-    login_id: '',
-    userpwd: '',
-    userpwdConfirm: '',
+    loginId: '',
+    userPwd: '',
+    userPwdConfirm: '',
   });
   const [signupError, setSignupError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -34,8 +34,8 @@ export default function useSignUpForm() {
     try {
       const response = await axios.post('http://localhost:8000/pm/signup/', {
         username: formData.username,
-        login_id: formData.login_id,
-        userpwd: formData.userpwd,
+        loginId: formData.loginId,
+        userPwd: formData.userPwd,
       });
 
       if (response.status === 201) {
