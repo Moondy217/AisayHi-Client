@@ -23,10 +23,10 @@ export default function LoginPage2() {
     <div className="flex justify-center items-center w-full h-[1024px]">
 
       {/* 로그인 폼 */}
-      <div className="flex w-[1024px] h-full border border-green-500">
-        <div className="w-1/2 h-full border border-green-500">
-          <div className="border border-blue-500">
-            <div className="mt-[104px] w-[512px] h-[112px] border border-red-500">
+      <div className="flex w-[1024px] h-full">
+        <div className="w-1/2 h-full">
+          <div className="mt-[104px] h-[495px] border border-blue-500">
+            <div className="w-[512px] h-[112px]">
               <span className="block text-[44px]">로그인</span>
               <span className="block mt-[16px]">등록한 계정으로 로그인하세요</span>
             </div>
@@ -78,7 +78,7 @@ export default function LoginPage2() {
         </div>
 
         {/* 로그인 이미지 */}
-        <div className="w-1/2 h-full border border-green-500 mt-[104px]">
+        <div className="w-1/2 h-full flex justify-end mt-[104px]">
           <img src={LoginImg} alt="Login Img" className="w-[377px] h-[495px]" />
         </div>
       </div>
