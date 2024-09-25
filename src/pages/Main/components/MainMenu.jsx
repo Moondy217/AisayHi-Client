@@ -5,13 +5,14 @@ export default function MainMenu() {
   const toggleMenu = useMenuStore((state) => state.toggleMenu); // zustand에서 메뉴 전환 함수 가져오기
 
   return (
-    <div className="hidden md:flex items-start justify-center text-white hover:text-gray-200 cursor-pointer space-x-8 flex-1 pl-14 mt-1 mb-0">
+    <div className="hidden md:flex items-start justify-center text-white hover:text-gray-200 cursor-pointer space-x-12 flex-1 mt-1 mb-0">
         <div 
           onClick={(e) => {
             e.preventDefault();
             toggleMenu(); // 메뉴 전환 함수 호출
           }}
         >
+          삼
           전체 카테고리
         </div>
     

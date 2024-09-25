@@ -19,7 +19,7 @@ export default function MainNavbar() {
     <nav className="bg-[#3B6EF1] flex flex-col items-center text-white h-[170px]">
       <div className="container h-full">
         {/* 첫 번째 줄: 로고 및 로그인/회원가입 */}
-        <div className="flex items-center justify-between h-[85px] ml-16 mr-16 mb-0">
+        <div className="flex items-center justify-between h-[85px] ml-[150px] mr-[150px] mb-0">
           {/* 로고 */}
           <div className="flex items-center">
             <Link to="/" aria-label="Main">
@@ -57,15 +57,10 @@ export default function MainNavbar() {
 
 
         {/* 두 번째 줄: 텍스트, 네비게이션 메뉴 및 검색바 */}
-        <div className="flex items-start justify-between text-[18px] h-[85px] ml-16 mr-16 mt-0 mb-0">
+        <div className="flex items-start justify-between text-[18px] h-[85px] ml-[150px] mr-[150px] mt-0 mb-0">
 
           {/* 로고 텍스트 */}
           <div className="flex items-start space-x-4 h-full px-0 py-0">
-            <span className="font-bold text-[24px]">
-              <Link to="/" className="text-white hover:text-gray-200 no-underline" aria-label="Main">
-                THE PORTER MARKET
-              </Link>
-              </span>
 
             {/* 네비게이션 메뉴 */}
             <MainMenu />
