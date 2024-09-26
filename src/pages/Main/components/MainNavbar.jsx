@@ -35,7 +35,7 @@ export default function MainNavbar() {
                 <span>{username} 님</span>
                 <button
                   onClick={handleLogout}
-                  className="text-white hover:text-gray-200 no-underline"
+                  className="text-[#FFE603] hover:text-gray-200 no-underline"
                   aria-label="Logout"
                 >
                   로그아웃
