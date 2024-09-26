@@ -7,7 +7,7 @@ export default function useSignUpForm() {
     username: '',
     login_id: '',
     userpwd: '',
-    userpwdConfirm: '',
+    userPwdConfirm: '',
   });
   const [signupError, setSignupError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -34,8 +34,8 @@ export default function useSignUpForm() {
     try {
       const response = await axios.post('http://localhost:8000/pm/signup/', {
         username: formData.username,
-        login_id: formData.login_id,
-        userpwd: formData.userpwd,
+        loginId: formData.login_id,
+        userPwd: formData.userpwd,
       });
 
       if (response.status === 201) {
