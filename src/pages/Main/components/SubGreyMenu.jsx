@@ -15,7 +15,7 @@ export default function SubGreyMenu() {
                     src={item.image}
                     alt={item.name}
                     className="cursor-pointer border border-[#3B6EF1] bg-white rounded-[13px] w-[100px] h-[100px] mt-[20px]" />
-                  <p className="mt-[15px] text-[17px]">{item.name}</p>
+                  <p className="mt-[15px] text-[18px]">{item.name}</p>
                 </div>
               </div>
             ))}

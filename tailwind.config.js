@@ -6,13 +6,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      borderRadius: {
-        'borderRadius': '13px'
-      },
-
-      fontSize: {
-        'fontSize20': '20px',
-        'fontSize24': '24px',
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
       },
     }
   },
