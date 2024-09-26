@@ -19,7 +19,7 @@ export default function MainNavbar() {
     <nav className="bg-[#3B6EF1] flex flex-col items-center text-white h-[170px]">
       <div className="container h-full">
         {/* 첫 번째 줄: 로고 및 로그인/회원가입 */}
-        <div className="flex items-center justify-between h-[85px] ml-[150px] mr-[150px] mb-0">
+        <div className="flex items-center justify-between h-[85px] ml-[150px] mr-[150px] mb-0 text-[24px] font-bold">
           {/* 로고 */}
           <div className="flex items-center">
             <Link to="/" aria-label="Main">
@@ -28,7 +28,7 @@ export default function MainNavbar() {
           </div>
 
           {/* 로그인/회원가입 또는 사용자 정보 및 로그아웃 */}
-          <div className="flex items-center text-[20px] space-x-4">
+          <div className="flex items-center space-x-4">
             {isAuthenticated ? (
               // 로그인된 상태
               <>
