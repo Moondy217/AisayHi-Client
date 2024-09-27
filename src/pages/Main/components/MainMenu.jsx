@@ -7,7 +7,7 @@ export default function MainMenu() {
   const menuIcon = iconData['menuIcon'];
 
   return (
-    <div className="hidden md:flex items-start justify-center text-white hover:text-gray-200 cursor-pointer space-x-8 flex-1 mt-1 mb-0 text-[24px] font-bold">
+    <div className="hidden md:flex items-start justify-center text-white hover:text-gray-200 cursor-pointer space-x-7 flex-1 mt-1 mb-0 text-[24px] font-bold">
         <div 
           onClick={(e) => {
             e.preventDefault();
@@ -15,7 +15,7 @@ export default function MainMenu() {
           }}
         >
           {menuIcon ? (
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-7">
             <img
               src={menuIcon.image} // iconData에서 가져온 image 경로
               alt={menuIcon.name}  // iconData에서 가져온 name 값

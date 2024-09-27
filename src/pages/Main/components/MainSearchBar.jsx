@@ -27,7 +27,7 @@ export default function MainSearchBar() {
           {/* 검색 아이콘 */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-gray-500 searchIcon"
+            className="h-5 w-5 text[#FB2448] searchIcon"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

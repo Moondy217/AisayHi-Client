@@ -5,8 +5,8 @@ import axios from 'axios'; // Axios 사용
 export default function useSignUpForm() {
   const [formData, setFormData] = useState({
     username: '',
-    loginId: '',
-    userPwd: '',
+    login_id: '',
+    userpwd: '',
     userPwdConfirm: '',
   });
   const [signupError, setSignupError] = useState('');
@@ -34,13 +34,11 @@ export default function useSignUpForm() {
     try {
       const response = await axios.post('http://localhost:8000/pm/signup/', {
         username: formData.username,
-<<<<<<< Updated upstream
-        loginId: formData.loginId,
-        userPwd: formData.userPwd,
-=======
         login_id: formData.login_id,
         userpwd: formData.userpwd,
->>>>>>> Stashed changes
+
+        loginId: formData.login_id,
+        userPwd: formData.userpwd,
       });
 
       if (response.status === 201) {
