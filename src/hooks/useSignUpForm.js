@@ -34,6 +34,9 @@ export default function useSignUpForm() {
     try {
       const response = await axios.post('http://localhost:8000/pm/signup/', {
         username: formData.username,
+        login_id: formData.login_id,
+        userpwd: formData.userpwd,
+
         loginId: formData.login_id,
         userPwd: formData.userpwd,
       });
