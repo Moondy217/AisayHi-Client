@@ -51,11 +51,11 @@ export default function LoginPage() {
                   </div>
                 </div>
 
-                {/* 비밀번호 입력 폼 */}
-                <div className="relative w-full mt-4">
-                  {/* 입력 필드 보더에 텍스트 삽입 */}
-                  <span className="absolute -top-3 left-4 px-2 bg-white text-gray-500 text-sm">비밀번호</span>
-                  <div className="w-full mb-4">
+            {/* 비밀번호 입력 폼 */}
+              <div className="relative w-full mt-4">
+                {/* 입력 필드 보더에 텍스트 삽입 */}
+                <span className="absolute -top-3 left-4 px-2 bg-white text-sm">Password</span>
+                <div className="w-full mb-4">
                   <input
                     type="password"
                     name="userpwd"
@@ -65,15 +65,16 @@ export default function LoginPage() {
                     className="h-[50px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
                     required
                   />
-                  </div>
                 </div>
+              </div>
 
-                <button
-                  type="submit"
-                  className="mt-[50px] h-[50px] w-full rounded-[13px] bg-[#3B6EF1] text-white hover:bg-blue-600 focus:outline-none"
-                >
-                  로그인
-                </button>
+
+              <button
+                type="submit"
+                className="mt-[50px] h-[65px] w-full rounded-[13px] bg-[#3B6EF1] text-white font-semibold text-[18px] hover:bg-blue-600 focus:outline-none"
+              >
+                로그인
+              </button>
 
                 {loginError && <p className="text-red-500 mt-4">{loginError}</p>}
               </form>

@@ -34,8 +34,13 @@ export default function useSignUpForm() {
     try {
       const response = await axios.post('http://localhost:8000/pm/signup/', {
         username: formData.username,
+<<<<<<< Updated upstream
         loginId: formData.loginId,
         userPwd: formData.userPwd,
+=======
+        login_id: formData.login_id,
+        userpwd: formData.userpwd,
+>>>>>>> Stashed changes
       });
 
       if (response.status === 201) {
