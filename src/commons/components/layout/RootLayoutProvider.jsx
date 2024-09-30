@@ -23,7 +23,7 @@ export default function RootLayoutProvider({ children }) {
       </div>
 
       {/* 메인 페이지 콘텐츠 */}
-      <div className="h-full flex justify-center items-center relative z-10 mx-[150px] border border-red-500"> {/* 메인 페이지는 항상 하단에 위치 */}
+      <div className="h-full flex justify-center items-center relative z-10 mx-[150px] mt-[104px] border border-red-500"> {/* 메인 페이지는 항상 하단에 위치 */}
         {children}
       </div>
     </QueryClientProvider>
