@@ -76,7 +76,7 @@ function SignUpPage() {
                     <input
                       required
                       type="password"
-                      name="userPwdConfirm"
+                      name="userpwdConfirm"
                       placeholder="비밀번호 확인"
                       value={formData.userpwdConfirm}
                       onChange={handleChange}
