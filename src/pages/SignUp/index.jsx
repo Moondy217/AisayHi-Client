@@ -19,7 +19,6 @@ function SignUpPage() {
             {/* 입력 폼 */}
             <div className="relative w-full mt-4">
               <form noValidate onSubmit={handleSubmit} className="flex flex-col items-center">
-                <div className="relative w-full mt-4">
 
                 {/* 이름 입력 폼 */}
                 <div className="relative w-full mt-4">
@@ -94,11 +93,10 @@ function SignUpPage() {
                     회원가입
                   </button>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
 
         {/* 로그인 이미지 */}
         <div className="w-1/2 h-full flex justify-end">

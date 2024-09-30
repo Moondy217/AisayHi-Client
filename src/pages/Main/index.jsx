@@ -1,5 +1,4 @@
 import '../../index.css';
-import '../Main/components/SubGreyMenu';
 
 export default function MainPage() {
 

@@ -55,6 +55,7 @@ export default function LoginPage() {
                 <div className="relative w-full mt-4">
                   <span className="absolute -top-3 left-4 px-2 bg-white text-sm">Password</span>
                   <div className="w-full mb-4">
+
                   <input
                     type="password"
                     name="userpwd"
@@ -64,8 +65,8 @@ export default function LoginPage() {
                     className="h-[65px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
                     required
                   />
-                  </div>
                 </div>
+              </div>
 
                 <button
                   type="submit"
