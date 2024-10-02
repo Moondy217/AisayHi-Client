@@ -1,76 +1,107 @@
 import useSignUpForm from '../../hooks/useSignUpForm';
+import SingUpImg from './assets/signup.svg';
 
 function SignUpPage() {
-  const { formData, handleChange, handleSubmit, signupError, isLoading } = useSignUpForm();
+  const { formData, handleChange, handleSubmit } = useSignUpForm();
 
   return (
-    <div className="flex justify-center items-center h-full">
-      <div className="text-center mt-[70px] w-[500px]">
-        <h1 className="mb-6 text-[48px]">더포마켓 회원가입</h1>
+    <div className="flex justify-center items-center w-full h-full">
 
-        <form
-          noValidate
-          onSubmit={handleSubmit}
-          className="flex flex-col items-center"
-        >
-          {/* 이름 입력 필드 */}
-          <input
-            required
-            type="text"
-            name="username"
-            placeholder="이름"
-            value={formData.username}
-            onChange={handleChange}
-            className="mt-[50px] w-[500px] h-[55px] border-0 border-b-2 border-[#3B6EF1] mb-[25px] focus:outline-none focus:ring-0"
-          />
+      {/* 회원가입 폼 */}
+      <div className="flex w-[1024px] h-full">
+        <div className="w-1/2 h-full">
+          <div className="h-full">
+            <div className="w-[512px] h-[112px]">
+              <span className="block text-[44px] font-bold">회원가입</span>
+              <span className="block text-[#707070] mt-[16px]">만나서 반가워요, 우리는 The Porter 가족이에요</span>
+            </div>
 
-          {/* 아이디 입력 필드 */}
-          <input
-            required
-            type="text"
-            name="loginId"
-            placeholder="아이디"
-            value={formData.loginId}
-            onChange={handleChange}
-            className="mt-[50px] w-[500px] h-[55px] border-0 border-b-2 border-[#3B6EF1] mb-[25px] focus:outline-none focus:ring-0"
-          />
+            {/* 입력 폼 */}
+            <div className="relative w-full mt-4">
+              <form noValidate onSubmit={handleSubmit} className="flex flex-col items-center">
 
-          {/* 비밀번호 입력 필드 */}
-          <input
-            required
-            type="password"
-            name="userPwd"
-            placeholder="비밀번호"
-            value={formData.userPwd}
-            onChange={handleChange}
-            className="mt-[50px] w-[500px] h-[55px] border-0 border-b-2 border-[#3B6EF1] mb-[25px] focus:outline-none focus:ring-0"
-          />
+                {/* 이름 입력 폼 */}
+                <div className="relative w-full">
+                  <span className="absolute -top-3 left-4 px-2 bg-white text-sm">Name</span>
+                  <div className="w-full mb-4">
+                    <input
+                      required
+                      type="text"
+                      name="username"
+                      placeholder="이름"
+                      value={formData.username}
+                      onChange={handleChange}
+                      className="h-[56px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
+                    />
+                    </div>
+                </div>
 
-          {/* 비밀번호 확인 입력 필드 */}
-          <input
-            required
-            type="password"
-            name="userPwdConfirm"
-            placeholder="비밀번호 확인"
-            value={formData.userPwdConfirm}
-            onChange={handleChange}
-            className="mt-[50px] w-[500px] h-[55px] border-0 border-b-2 border-[#3B6EF1] mb-[25px] focus:outline-none focus:ring-0"
-          />
+                {/* 아이디 입력 폼 */}
+                <div className="relative w-full">
+                  <span className="absolute -top-3 left-4 px-2 bg-white text-sm">ID</span>
+                  <div className="w-full mb-4">
+                    <input
+                      required
+                      type="text"
+                      name="login_id"
+                      placeholder="아이디"
+                      value={formData.login_id}
+                      onChange={handleChange}
+                      className="h-[56px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
+                    />
+                  </div>
+                </div>
 
-          {/* 에러 메시지 */}
-          {signupError && <p className="text-red-500 text-sm mb-4">{signupError}</p>}
+                {/* 비밀번호 입력 폼 */}
+                <div className="relative w-full">
+                  <span className="absolute -top-3 left-4 px-2 bg-white text-sm">Password</span>
+                  <div className="w-full mb-4">
+                    <input
+                      required
+                      type="password"
+                      name="userpwd"
+                      placeholder="비밀번호"
+                      value={formData.userpwd}
+                      onChange={handleChange}
+                      className="h-[56px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
+                    />
+                    </div>
+                </div>
 
-          {/* 회원가입 버튼 */}
-          <button
-            type="submit"
-            disabled={isLoading} // 로딩 중일 때 버튼 비활성화
-            className={`mt-[50px] mb-[100px] w-[500px] h-[50px] rounded-[13px] bg-[#3B6EF1] text-white ${
-              isLoading ? 'bg-gray-500' : 'hover:bg-blue-600'
-            } focus:outline-none`}
-          >
-            {isLoading ? '가입 중...' : '회원가입 완료'}
-          </button>
-        </form>
+                {/* 비밀번호 확인 입력 폼 */}
+                <div className="relative w-full">
+                  <span className="absolute -top-3 left-4 px-2 bg-white text-sm">Password Confirm</span>
+                  <div className="w-full">
+                    <input
+                      required
+                      type="password"
+                      name="userpwdConfirm"
+                      placeholder="비밀번호 확인"
+                      value={formData.userpwdConfirm}
+                      onChange={handleChange}
+                      className="h-[56px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
+                    />
+                    </div>
+                </div>
+
+                {/* 회원가입 버튼 */}
+                <div className="w-full">
+                  <button
+                    type="submit"
+                    className="mt-[40px] h-[56px] w-full rounded-[13px] bg-[#3B6EF1] text-white font-semibold text-[18px] hover:bg-blue-600 focus:outline-none"
+                  >
+                    회원가입
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        {/* 로그인 이미지 */}
+        <div className="w-1/2 h-full flex justify-end">
+          <img src={SingUpImg} alt="SingUp Img" className="w-[380px] h-[495px]" />
+        </div>
       </div>
     </div>
   );
