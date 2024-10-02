@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Axios 사용
+import axios from 'axios';
 
 export default function useSignUpForm() {
   const [formData, setFormData] = useState({
     username: '',
     login_id: '',
     userpwd: '',
-    userPwdConfirm: '',
+    userpwdConfirm: '',
   });
   const [signupError, setSignupError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -34,8 +34,8 @@ export default function useSignUpForm() {
     try {
       const response = await axios.post('http://localhost:8000/pm/signup/', {
         username: formData.username,
-        loginId: formData.login_id,
-        userPwd: formData.userpwd,
+        login_id: formData.login_id,
+        userpwd: formData.userpwd,
       });
 
       if (response.status === 201) {
