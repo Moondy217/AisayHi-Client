@@ -21,7 +21,7 @@ function SignUpPage() {
               <form noValidate onSubmit={handleSubmit} className="flex flex-col items-center">
 
                 {/* 이름 입력 폼 */}
-                <div className="relative w-full mt-4">
+                <div className="relative w-full">
                   <span className="absolute -top-3 left-4 px-2 bg-white text-sm">Name</span>
                   <div className="w-full mb-4">
                     <input
@@ -37,7 +37,7 @@ function SignUpPage() {
                 </div>
 
                 {/* 아이디 입력 폼 */}
-                <div className="relative w-full mt-4">
+                <div className="relative w-full">
                   <span className="absolute -top-3 left-4 px-2 bg-white text-sm">ID</span>
                   <div className="w-full mb-4">
                     <input
@@ -53,7 +53,7 @@ function SignUpPage() {
                 </div>
 
                 {/* 비밀번호 입력 폼 */}
-                <div className="relative w-full mt-4">
+                <div className="relative w-full">
                   <span className="absolute -top-3 left-4 px-2 bg-white text-sm">Password</span>
                   <div className="w-full mb-4">
                     <input
@@ -69,9 +69,9 @@ function SignUpPage() {
                 </div>
 
                 {/* 비밀번호 확인 입력 폼 */}
-                <div className="relative w-full mt-4">
+                <div className="relative w-full">
                   <span className="absolute -top-3 left-4 px-2 bg-white text-sm">Password Confirm</span>
-                  <div className="w-full mb-4">
+                  <div className="w-full">
                     <input
                       required
                       type="password"
@@ -85,10 +85,10 @@ function SignUpPage() {
                 </div>
 
                 {/* 회원가입 버튼 */}
-                <div className="w-full mb-4">
+                <div className="w-full">
                   <button
                     type="submit"
-                    className="mt-[50px] h-[56px] w-full rounded-[13px] bg-[#3B6EF1] text-white font-semibold text-[18px] hover:bg-blue-600 focus:outline-none"
+                    className="mt-[40px] h-[56px] w-full rounded-[13px] bg-[#3B6EF1] text-white font-semibold text-[18px] hover:bg-blue-600 focus:outline-none"
                   >
                     회원가입
                   </button>
@@ -100,7 +100,7 @@ function SignUpPage() {
 
         {/* 로그인 이미지 */}
         <div className="w-1/2 h-full flex justify-end">
-          <img src={SingUpImg} alt="SingUp Img" className="w-[377px] h-[495px]" />
+          <img src={SingUpImg} alt="SingUp Img" className="w-[380px] h-[495px]" />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import useLoginForm from '../../hooks/useLoginForm';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginImg from './assets/login.svg';
 
 export default function LoginPage() {
@@ -79,11 +79,16 @@ export default function LoginPage() {
               </form>
             </div>
           </div>
+            <div className="flex justify-center mt-[37px] font-semibold text-[16px]">
+              아직 THE PORTER의 가족이 아니신가요?
+                <div className="hover:cursor text-red-500 ml-[10px]">
+                  <Link to="/SignUpPage">회원가입</Link>
+                </div>
+            </div>
         </div>
-
         {/* 로그인 이미지 */}
         <div className="w-1/2 h-full flex justify-end">
-          <img src={LoginImg} alt="Login Img" className="w-[377px] h-[495px]" />
+          <img src={LoginImg} alt="Login Img" className="w-[380px] h-[495px]" />
         </div>
       </div>
     </div>

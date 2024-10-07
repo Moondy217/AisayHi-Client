@@ -11,6 +11,7 @@ const useLoginForm = () => {
 
   const handleLogin = async () => {
     try {
+      console.log('로그인 데이터:', { login_id, userpwd }); // 추가된 로그
       const response = await axios.post('http://localhost:8000/pm/login/', {
         login_id,
         userpwd,
