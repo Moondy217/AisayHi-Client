@@ -32,10 +32,11 @@ export default function MainNavbar() {
             {isAuthenticated ? (
               // 로그인된 상태
               <>
-                <span>{username} 님</span>
+                <div className="cursor-pointer text-[#FFE603]">{username}</div>
+                <span>님</span>
                 <button
                   onClick={handleLogout}
-                  className="text-[#FFE603] hover:text-gray-200 no-underline"
+                  className="hover:text-gray-200 no-underline"
                   aria-label="Logout"
                 >
                   로그아웃

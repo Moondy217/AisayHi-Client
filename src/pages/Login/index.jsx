@@ -1,5 +1,5 @@
 import useLoginForm from '../../hooks/useLoginForm';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginImg from './assets/login.svg';
 
 export default function LoginPage() {
@@ -44,7 +44,7 @@ export default function LoginPage() {
                       name="login_id"
                       value={login_id}
                       onChange={(e) => setLoginId(e.target.value)}
-                      placeholder="AisayHi"
+                      placeholder="아이디를 입력하세요"
                       className="h-[65px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
                       required
                     /> 
@@ -61,7 +61,7 @@ export default function LoginPage() {
                     name="userpwd"
                     value={userpwd}
                     onChange={(e) => setUserpwd(e.target.value)}
-                    placeholder="**********"
+                    placeholder="비밀번호를 입력하세요"
                     className="h-[65px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
                     required
                   />
@@ -79,11 +79,16 @@ export default function LoginPage() {
               </form>
             </div>
           </div>
+            <div className="flex justify-center mt-[37px] font-semibold text-[16px]">
+              아직 THE PORTER의 가족이 아니신가요?
+                <div className="hover:cursor text-red-500 ml-[10px]">
+                  <Link to="/SignUpPage">회원가입</Link>
+                </div>
+            </div>
         </div>
-
         {/* 로그인 이미지 */}
         <div className="w-1/2 h-full flex justify-end">
-          <img src={LoginImg} alt="Login Img" className="w-[377px] h-[495px]" />
+          <img src={LoginImg} alt="Login Img" className="w-[380px] h-[495px]" />
         </div>
       </div>
     </div>
