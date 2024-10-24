@@ -44,7 +44,7 @@ export default function LoginPage() {
                       name="login_id"
                       value={login_id}
                       onChange={(e) => setLoginId(e.target.value)}
-                      placeholder="AisayHi"
+                      placeholder="아이디를 입력하세요"
                       className="h-[65px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
                       required
                     /> 
@@ -61,7 +61,7 @@ export default function LoginPage() {
                     name="userpwd"
                     value={userpwd}
                     onChange={(e) => setUserpwd(e.target.value)}
-                    placeholder="**********"
+                    placeholder="비밀번호를 입력하세요"
                     className="h-[65px] w-full border border-[#000000] rounded-[13px] focus:outline-none px-3"
                     required
                   />
