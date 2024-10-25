@@ -18,7 +18,8 @@ const itemsList = [
               {items.map((item, index) => (
                 <div
                   key={index}
-                  className={`flex justify-center items-center text-center cursor-pointer text-[16px] h-[46px] border-b border-[#3B6EF1] ${
+                  className={`flex justify-center items-center text-center cursor-pointer hover:shadow-lg transition-shadow h-full
+                    text-[16px] h-[46px] border-b border-[#3B6EF1] ${
                     index === 0 ? 'font-bold text-[17px] bg-white' : 'bg-white hover:bg-gray-200'
                   }`}
                 >

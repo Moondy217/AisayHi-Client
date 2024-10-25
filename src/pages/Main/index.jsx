@@ -133,7 +133,7 @@ function Section({ title, items }) {
         {items.map((item, index) => (
           <div key={index} className="p-4">
             <div
-              className="w-[280px] h-[550px] border rounded-[14px] p-4 flex flex-col justify-between 
+              className="w-[300px] h-[565px] border rounded-[14px] p-4 flex flex-col justify-between 
                         hover:shadow-lg transition-shadow h-full"
             >
               <Link to={`/product/${item.goodsName}`} className="flex-grow">
