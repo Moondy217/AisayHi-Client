@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 
 function ProductCard({ item }) {
   return (
-    <div className="p-4">
+    <div className="p-1 flex justify-start">
       <div
-        className="w-[300px] h-[580px] border rounded-[14px] p-4 flex flex-col justify-between 
-                  hover:shadow-lg transition-shadow h-full"
+        className="w-[350px] h-[550px] border rounded-[14px] p-4 flex flex-col 
+                   justify-between hover:shadow-lg transition-shadow overflow-visible"
       >
-        <Link to={`/product/${item.goodsName}`} className="flex-grow">
+        {/* Link에 상품 정보를 state로 전달 */}
+        <Link to={`/product/${item.goodsKey}`} state={{ product: item }} className="flex-grow">
           <img
             src={item.goodsImg}
             alt={item.goodsName}
@@ -28,6 +29,7 @@ function ProductCard({ item }) {
 
 ProductCard.propTypes = {
   item: PropTypes.shape({
+    goodsKey: PropTypes.number.isRequired, 
     goodsName: PropTypes.string.isRequired,
     goodsImg: PropTypes.string.isRequired,
     originalPrice: PropTypes.number.isRequired,

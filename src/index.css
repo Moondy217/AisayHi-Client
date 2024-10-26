@@ -29,3 +29,13 @@
     height: auto !important;
   }
   
+
+/* 기본 화살표를 보이지 않게 설정 */
+.slick-prev, .slick-next {
+  visibility: hidden;
+}
+
+/* 커스텀 화살표가 적용될 때는 보이도록 설정 */
+.custom-arrow {
+  visibility: visible !important;
+}
