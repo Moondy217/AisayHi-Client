@@ -14,7 +14,8 @@ export default function SubGreyMenu() {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="cursor-pointer border border-[#3B6EF1] bg-white rounded-[13px] w-[100px] h-[100px] mt-[20px]" />
+                    className="cursor-pointer hover:shadow-lg transition-shadow 
+                    border border-[#3B6EF1] bg-white rounded-[13px] w-[100px] h-[100px] mt-[20px]" />
                   <p className="mt-[15px] text-[18px]">{item.name}</p>
                 </div>
               </div>
