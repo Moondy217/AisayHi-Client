@@ -20,7 +20,9 @@ function Section({ title, items }) {
     ],
   };
 
-  function highlightMainKeyword(headline, mainKeyword) {
+   // 메인 키워드 강조 함수
+   function highlightMainKeyword(headline, mainKeyword) {
+    if (!headline.includes(mainKeyword)) return headline;
     const parts = headline.split(mainKeyword);
     return (
       <>
@@ -28,7 +30,7 @@ function Section({ title, items }) {
           <React.Fragment key={index}>
             {part}
             {index < parts.length - 1 && (
-              <span className="font-bold">{mainKeyword}</span>
+              <span className="font-bold text-[#FF6347]">{mainKeyword}</span>
             )}
           </React.Fragment>
         ))}
@@ -36,6 +38,7 @@ function Section({ title, items }) {
     );
   }
 
+  // 상품이 없을 때 처리
   if (!items || items.length === 0) {
     return (
       <div className="w-full max-w-screen-xl mb-16 text-center">
@@ -45,8 +48,9 @@ function Section({ title, items }) {
     );
   }
 
+  // 상품 슬라이더와 섹션 렌더링
   return (
-    <div className="recoSection w-full max-w-screen-xl mb-16  my-[150px]">
+    <div className="recoSection w-full max-w-screen-xl mb-16 my-[150px]">
       <p className="text-[34px] font-normal text-[#6A90F2] mb-4">
         {title.headline1}
       </p>
@@ -62,6 +66,7 @@ function Section({ title, items }) {
   );
 }
 
+// PropTypes를 통한 타입 체크
 Section.propTypes = {
   title: PropTypes.shape({
     headline1: PropTypes.string.isRequired,
@@ -70,6 +75,7 @@ Section.propTypes = {
   }).isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
+      goodsKey: PropTypes.number.isRequired,
       goodsName: PropTypes.string.isRequired,
       goodsImg: PropTypes.string.isRequired,
       originalPrice: PropTypes.number.isRequired,
