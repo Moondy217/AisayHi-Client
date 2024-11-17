@@ -3,7 +3,7 @@ import useMenuStore from "../../../store/menuStore";
 
 export default function MainMenu() {
 
-  const toggleMenu = useMenuStore((state) => state.toggleMenu); // zustand에서 메뉴 전환 함수 가져오기
+  const toggleMenu = useMenuStore((state) => state.toggleMenu);
   const menuIcon = iconData['menuIcon'];
 
   return (
@@ -11,14 +11,14 @@ export default function MainMenu() {
         <div 
           onClick={(e) => {
             e.preventDefault();
-            toggleMenu(); // 메뉴 전환 함수 호출
+            toggleMenu();
           }}
         >
           {menuIcon ? (
           <div className="flex items-center space-x-7">
             <img
-              src={menuIcon.image} // iconData에서 가져온 image 경로
-              alt={menuIcon.name}  // iconData에서 가져온 name 값
+              src={menuIcon.image}
+              alt={menuIcon.name}
             />
             <div>전체 카테고리</div>
           </div>
